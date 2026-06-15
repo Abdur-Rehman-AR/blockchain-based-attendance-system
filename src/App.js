@@ -2,64 +2,57 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [name, setName] = useState("");
-  const [achievement, setAchievement] = useState("");
-  const [certificateId, setCertificateId] = useState("");
-  const [result, setResult] = useState("");
+  const [attendance, setAttendance] = useState([]);
 
-  const issueCertificate = () => {
-    alert(`NFT Certificate Issued Successfully!`);
-  };
+  const checkIn = () => {
+    const today = new Date().toLocaleString();
 
-  const verifyCertificate = () => {
-    if (certificateId === "1") {
-      setResult("✅ Valid NFT Certificate");
-    } else {
-      setResult("❌ Certificate Not Found");
-    }
+    setAttendance([
+      ...attendance,
+      {
+        name: "Abdur Rehman",
+        date: today,
+        status: "Present",
+      },
+    ]);
   };
 
   return (
     <div className="container">
       <div className="card">
-        <h1>🏆 Decentralized Internship Certificate System</h1>
-        <p>Blockchain-powered NFT Certificate Verification</p>
+        <h1>⛓️ Blockchain Attendance System</h1>
 
-        <div className="section">
-          <h2>Issue NFT Certificate</h2>
+        <p>
+          Secure Attendance Tracking using Web3 Concepts
+        </p>
 
-          <input
-            type="text"
-            placeholder="Intern Name"
-            onChange={(e) => setName(e.target.value)}
-          />
+        <button onClick={checkIn}>
+          Connect MetaMask & Check In
+        </button>
 
-          <input
-            type="text"
-            placeholder="Achievement"
-            onChange={(e) => setAchievement(e.target.value)}
-          />
+        <h2 style={{ marginTop: "30px" }}>
+          Immutable Attendance Logs
+        </h2>
 
-          <button onClick={issueCertificate}>
-            Issue Certificate
-          </button>
-        </div>
+        <table style={{ width: "100%", marginTop: "20px" }}>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Date & Time</th>
+              <th>Status</th>
+            </tr>
+          </thead>
 
-        <div className="section">
-          <h2>Verify Certificate</h2>
-
-          <input
-            type="text"
-            placeholder="Certificate ID"
-            onChange={(e) => setCertificateId(e.target.value)}
-          />
-
-          <button onClick={verifyCertificate}>
-            Verify
-          </button>
-
-          {result && <div className="result">{result}</div>}
-        </div>
+          <tbody>
+            {attendance.map((item, index) => (
+              <tr key={index}>
+                <td>{item.name}</td>
+                <td>{item.date}</td>
+                <td>{item.status}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
