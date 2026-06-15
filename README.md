@@ -1,21 +1,8 @@
-Decentralized Internship Certificate System
+Built a Blockchain-Based Attendance System using React.js and Solidity concepts.
 
-Description:
-A blockchain-based certificate system that allows issuance and verification of intern certificates using Solidity smart contracts.
+The project demonstrates secure attendance tracking, immutable attendance logs, and Web3-inspired check-in functionality for interns.
 
-Features:
-- Issue certificates
-- Verify certificates
-- Store achievements on-chain
-- Tamper-resistant records
-
-Technology:
-- Solidity
-- Hardhat
-- React.js
-
-How to Run:
-1. npm install
-2. npx hardhat compile
-3. npx hardhat run scripts/deploy.js
-4. npm start
+🔹 React.js
+🔹 Solidity
+🔹 Web3 Concepts
+🔹 Smart Contracts
